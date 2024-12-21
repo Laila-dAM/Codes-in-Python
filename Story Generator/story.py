@@ -8,7 +8,7 @@ character = [
 ]
 
 places = [
-     "in the castle", "in the forest", "in space", "in the village", "on the mountain", 
+    "in the castle", "in the forest", "in space", "in the village", "on the mountain", 
     "at the bottom of the sea", "on a desert island", "in the secret laboratory", 
     "in the futuristic city", "in a mysterious cave", "in the desert", 
     "on the moon", "in an abandoned city", "in the realm of shadows", "in the ancient temple",
@@ -16,7 +16,7 @@ places = [
 ]
 
 actions = [
-     "flew", "fought a monster", "cast a spell", "rescued someone", 
+    "flew", "fought a monster", "cast a spell", "rescued someone", 
     "invaded a party", "attacked with a sword", "solved a mystery", 
     "sailed through dangerous seas", "found a treasure", "ran to escape a dragon", 
     "died and came back to life", "transformed into an animal", "sacrificed something important", 
@@ -24,7 +24,7 @@ actions = [
 ]
 
 items = [
-     "a magic sword", "an invisible cloak", "an ancient spell", "a treasure map", 
+    "a magic sword", "an invisible cloak", "an ancient spell", "a treasure map", 
     "a enchanted stone", "a glowing crystal", "a spellbook", "an iron shield", 
     "a enchanted compass", "an elixir of immortality", "a golden key", "a ring of the gods", 
     "an enchanted bracelet", "a dragon's heart", "an angel's wing"
@@ -71,14 +71,14 @@ professions = {
 }
 
 def generate_story():
-    character = random.choice(characters)
-action = random.choice(professions[character])
-place = random.choice(places)
-item = random.choice(items)
-emotion = random.choice(emotions)
-event = random.choice(events)
+    chosen_character = random.choice(character)
+    action = random.choice(professions[chosen_character])
+    place = random.choice(places)
+    item = random.choice(items)
+    emotion = random.choice(emotions)
+    event = random.choice(events)
 
-story = (f"{character}, {emotion}, {action} {place} with {item}." f"During the journey, {character} {event}.")
-return story
+    story = f"{chosen_character}, {emotion}, {action} {place} with {item}. During the journey, {chosen_character} {event}."
+    return story
 
 print(generate_story())
