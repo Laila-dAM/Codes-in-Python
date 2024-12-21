@@ -69,3 +69,16 @@ professions = {
     "The zombie": ["attacked a city", "lost its brain", "reanimated", "chased prey"],
     "The nymph": ["tended a forest", "performed a mystical dance", "protected the balance of nature", "healed a magical tree"]
 }
+
+def generate_story():
+    character = random.choice(characters)
+action = random.choice(professions[character])
+place = random.choice(places)
+item = random.choice(items)
+emotion = random.choice(emotions)
+event = random.choice(events)
+
+story = (f"{character}, {emotion}, {action} {place} with {item}." f"During the journey, {character} {event}.")
+return story
+
+print(generate_story())
