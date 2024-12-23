@@ -2,11 +2,11 @@ from PIL import Image
 ASCII_CHARS = ["@", "#", "S", "%", "?", "*", "+", ";", ":", ",", "."]
 
 def resize_image(image, new_width = 100):
-    width, heigth = image.size
+    width, height = image.size
     ratio = height/width
     new_height = int(new_width * ratio)
-    resized image = image.resize((new_width, new_height))
-    return resized_imagem
+    resized_image = image.resize((new_width, new_height))
+    return resized_image
 
 def grayify(image):
     return image.convert("L")
@@ -16,7 +16,7 @@ def pixel_to_ascii(pixel_value):
 
 def image_to_ascii(image_path, new_width = 100):
     try:
-        image = image.open(image_path)
+        image = Image.open(image_path)
     except Exception as e:
         print(e)
         return
@@ -24,13 +24,13 @@ def image_to_ascii(image_path, new_width = 100):
 image = resize_image(image, new_width)
 image = grayify(image)
 pixels = list(image.getdata())
-ascii str = ".join([pixel_to_ascii(pixel) for pixel in pixels])
+ascii_str = ' '.join([pixel_to_ascii(pixel) for pixel in pixels])
 ascii_str_len = len(ascii_str)
     ascii_str = '\n'.join([ascii_str[i:i + new_width] for i in range(0, ascii_str_len, new_width)])
 return ascii_str
 
 def save_to_file(ascii_str, output_file):
-    with open(output_file, "W") as f:
+    with open(output_file, "w") as f:
         f.write(ascii_str)
 
 def main(image_path, output_file = "output.txt", new_width = 100):
@@ -39,8 +39,6 @@ def main(image_path, output_file = "output.txt", new_width = 100):
         print(ascii_art)
         save_to_file(ascii_art, output_file)
 
-if__name__ == '__main__':
+if __name__ == '__main__':
     image_path = input("Enter the image path: ")
     main(image_path)
-        
-"
