@@ -82,4 +82,23 @@ for obstacle in obstacles:
     text = font.render(kaomojis_obstacle, True, RED)
     screen.blit(text, (obstacle.x, obstacle.y))
     
+for speed item in speed items:
+    font = pygame.font.SysFont("Arial", 36)
+    text = font.render(kaomojis_speed, True, BLUE)
+    screen.blit(text, (speed_item.x, speed_item.y))
 
+draw_player(player_rect.x, player_rect.y, has_speed_item)
+
+score += 1
+
+font = pygame.font.SysFont("Arial", 24)
+score_text = font.render(f"Score: {score}", True, GREEN)
+screen.blit(score_text, (10, 10))
+
+pygame.displat.flip()
+
+clock.tick(60)
+
+pygame.quit()
+
+game_loop()
