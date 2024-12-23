@@ -64,3 +64,21 @@ if random.randint(1, 20) == 1:
 if random.randint(1, 50) == 1:
     speed_item.append(create_speed_item())
 
+for obstacle in obstacles:
+    obstacle.x -= speed
+    if obstacle.colliderect(player_rect):
+        game_over = True
+
+for speed_item in speed_items:
+    speed_item.x -= speed
+    if speed_item.colliderect(player_rect):
+        has speed item = True
+
+obstacles = [obstacle for obstacle in obstacles if obstacle.x > 0]
+speed_items = [item for item in speed_items if item.x > 0]
+
+for obstacle in obstacles:
+    font = pygame.font.SysFont("Arial", 36)
+    text = font.render(kaomojis_obstacle, True, RED)
+    screen.blit(text, (obstacle.x, obstacle.y))
+
