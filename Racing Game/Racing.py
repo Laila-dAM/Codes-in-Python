@@ -38,3 +38,29 @@ def game_loop():
     player_rect = pygame.Rect(player_x, player_y, 40, 40)
     has_speed_item = False
 
+obstacles = []
+speed_items = []
+score = 0
+game_over = False
+speed = 5
+
+clock = pygame.time.Clock()
+
+while not game_over:
+    screen.fill(BLACK)
+
+for event in pygame.event.get():
+    if event.type == pygame.QUIT:
+        game_over = True
+
+keys = pygame.key.get_pressed()
+if keys[pygame.K_UP] and player_rect.top > 0:
+    player_rect.y -= 10
+if keys[pygame.k_DOWN] and player_rect.bottom < SCREEN_HEIGHT:
+    player_rect.y += 10
+
+if random.randint(1, 20) == 1:
+    obstacles.append(create_obstacle())
+if random.randint(1, 50) == 1:
+    speed_item.append(create_speed_item())
+
