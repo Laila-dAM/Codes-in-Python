@@ -62,7 +62,7 @@ if keys[pygame.k_DOWN] and player_rect.bottom < SCREEN_HEIGHT:
 if random.randint(1, 20) == 1:
     obstacles.append(create_obstacle())
 if random.randint(1, 50) == 1:
-    speed_item.append(create_speed_item())
+    speed_items.append(create_speed_item())
 
 for obstacle in obstacles:
     obstacle.x -= speed
@@ -72,7 +72,7 @@ for obstacle in obstacles:
 for speed_item in speed_items:
     speed_item.x -= speed
     if speed_item.colliderect(player_rect):
-        has speed item = True
+        has_speed_item = True
 
 obstacles = [obstacle for obstacle in obstacles if obstacle.x > 0]
 speed_items = [item for item in speed_items if item.x > 0]
@@ -82,7 +82,7 @@ for obstacle in obstacles:
     text = font.render(kaomojis_obstacle, True, RED)
     screen.blit(text, (obstacle.x, obstacle.y))
     
-for speed item in speed items:
+for speed_item in speed_items:
     font = pygame.font.SysFont("Arial", 36)
     text = font.render(kaomojis_speed, True, BLUE)
     screen.blit(text, (speed_item.x, speed_item.y))
@@ -95,7 +95,7 @@ font = pygame.font.SysFont("Arial", 24)
 score_text = font.render(f"Score: {score}", True, GREEN)
 screen.blit(score_text, (10, 10))
 
-pygame.displat.flip()
+pygame.display.flip()
 
 clock.tick(60)
 
