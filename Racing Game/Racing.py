@@ -81,4 +81,5 @@ for obstacle in obstacles:
     font = pygame.font.SysFont("Arial", 36)
     text = font.render(kaomojis_obstacle, True, RED)
     screen.blit(text, (obstacle.x, obstacle.y))
+    
 
