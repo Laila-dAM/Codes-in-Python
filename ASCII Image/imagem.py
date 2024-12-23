@@ -27,5 +27,16 @@ pixels = list(image.getdata())
 ascii str = ".join([pixel_to_ascii(pixel) for pixel in pixels])
 ascii_str_len = len(ascii_str)
     ascii_str = '\n'.join([ascii_str[i:i + new_width] for i in range(0, ascii_str_len, new_width)])
+return ascii_str
 
+def save_to_file(ascii_str, output_file):
+    with open(output_file, "W") as f:
+        f.write(ascii_str)
+
+def main(image_path, output_file = "output.txt", new_width = 100):
+    ascii_art = image_to_ascii(image_path, new_width)
+    if ascii_art:
+        print(ascii_art)
+        save_to_file(ascii_art, output_file)
+        
 "
