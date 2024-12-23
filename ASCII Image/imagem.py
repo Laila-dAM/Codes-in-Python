@@ -38,6 +38,9 @@ def main(image_path, output_file = "output.txt", new_width = 100):
     if ascii_art:
         print(ascii_art)
         save_to_file(ascii_art, output_file)
-        
+
+if__name__ == '__main__':
+    image_path = input("Enter the image path: ")
+    main(image_path)
         
 "
